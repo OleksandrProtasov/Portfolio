@@ -1,7 +1,7 @@
 import LineGradient from "../components/LineGradient";
 import { useForm } from "react-hook-form";
 import { motion } from "framer-motion";
-import contactImg from "../../src/assets/contact-image.jpeg"
+import contactImg from "../assets/contact-image.jpeg";
 
 const Contact = () => {
   const {
@@ -11,7 +11,6 @@ const Contact = () => {
   } = useForm();
 
   const onSubmit = async (e) => {
-    console.log("~ e", e);
     const isValid = await trigger();
     if (!isValid) {
       e.preventDefault();
@@ -20,7 +19,6 @@ const Contact = () => {
 
   return (
     <section id="contact" className="contact py-48">
-      {/* HEADINGS */}
       <motion.div
         initial="hidden"
         whileInView="visible"
@@ -30,20 +28,20 @@ const Contact = () => {
           hidden: { opacity: 0, x: 50 },
           visible: { opacity: 1, x: 0 },
         }}
-        className="flex justify-end w-full"
+        className="flex w-full justify-end"
       >
         <div>
-          <p className="font-playfair font-semibold text-4xl">
-            <span className="text-yellow">CONTACT ME</span> TO GET STARTED
+          <p className="font-playfair text-4xl font-semibold leading-tight">
+            <span className="text-pdt-violet">CONTACT ME</span>{" "}
+            <span className="pdt-body-muted font-normal">TO GET STARTED</span>
           </p>
-          <div className="flex md:justify-end my-5">
+          <div className="my-5 flex md:justify-end">
             <LineGradient width="w-1/2" />
           </div>
         </div>
       </motion.div>
 
-      {/* FORM & IMAGE */}
-      <div className="md:flex md:justify-between gap-16 mt-5">
+      <div className="mt-5 gap-16 md:flex md:justify-between">
         <motion.div
           initial="hidden"
           whileInView="visible"
@@ -53,9 +51,13 @@ const Contact = () => {
             hidden: { opacity: 0, y: 50 },
             visible: { opacity: 1, y: 0 },
           }}
-          className="basis-1/2 flex justify-center"
+          className="flex basis-1/2 justify-center"
         >
-          <img src={contactImg} alt="contact" />
+          <img
+            src={contactImg}
+            alt="contact"
+            className="max-w-full rounded-md ring-2 ring-pdt-mint/30 ring-offset-4 ring-offset-[#0d0d0d]"
+          />
         </motion.div>
 
         <motion.div
@@ -67,7 +69,7 @@ const Contact = () => {
             hidden: { opacity: 0, y: 50 },
             visible: { opacity: 1, y: 0 },
           }}
-          className="basis-1/2 mt-10 md:mt-0"
+          className="mt-10 basis-1/2 md:mt-0"
         >
           <form
             target="_blank"
@@ -76,39 +78,41 @@ const Contact = () => {
             method="POST"
           >
             <input
-              className="w-full bg-blue font-semibold placeholder-opaque-black p-3"
+              className="pdt-input"
               type="text"
               placeholder="NAME"
+              autoComplete="name"
               {...register("name", {
                 required: true,
                 maxLength: 100,
               })}
             />
             {errors.name && (
-              <p className="text-red mt-1">
+              <p className="mt-1 text-sm text-pdt-coral">
                 {errors.name.type === "required" && "This field is required."}
                 {errors.name.type === "maxLength" && "Max length is 100 char."}
               </p>
             )}
 
             <input
-              className="w-full bg-blue font-semibold placeholder-opaque-black p-3 mt-5"
-              type="text"
+              className="pdt-input mt-5"
+              type="email"
               placeholder="EMAIL"
+              autoComplete="email"
               {...register("email", {
                 required: true,
                 pattern: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
               })}
             />
             {errors.email && (
-              <p className="text-red mt-1">
+              <p className="mt-1 text-sm text-pdt-coral">
                 {errors.email.type === "required" && "This field is required."}
                 {errors.email.type === "pattern" && "Invalid email address."}
               </p>
             )}
 
             <textarea
-              className="w-full bg-blue font-semibold placeholder-opaque-black p-3 mt-5"
+              className="pdt-input mt-5"
               name="message"
               placeholder="MESSAGE"
               rows="4"
@@ -119,7 +123,7 @@ const Contact = () => {
               })}
             />
             {errors.message && (
-              <p className="text-red mt-1">
+              <p className="mt-1 text-sm text-pdt-coral">
                 {errors.message.type === "required" &&
                   "This field is required."}
                 {errors.message.type === "maxLength" &&
@@ -128,10 +132,10 @@ const Contact = () => {
             )}
 
             <button
-              className="p-5 bg-yellow font-semibold text-deep-blue mt-5 hover:bg-red hover:text-white transition duration-500"
+              className="mt-6 w-full rounded-md bg-gradient-to-r from-pdt-lemon via-pdt-mint to-pdt-coral px-5 py-4 text-sm font-bold uppercase tracking-wide text-pdt-ink shadow-pdt-glow-mint transition duration-500 hover:from-pdt-violet hover:via-pdt-mint hover:to-pdt-lemon hover:text-white hover:shadow-pdt-glow md:w-auto"
               type="submit"
             >
-              SEND ME A MESSAGE
+              Send me a message
             </button>
           </form>
         </motion.div>

@@ -10,6 +10,11 @@ import useMediaQuery from "./hooks/useMediaQuery";
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 
+const sectionMotion = {
+  hidden: {},
+  visible: {},
+};
+
 function App() {
   const [selectedPage, setSelectedPage] = useState("home");
   const [isTopOfPage, setIsTopOfPage] = useState(true);
@@ -28,7 +33,7 @@ function App() {
   }, []);
 
   return (
-    <div className="app bg-deep-blue">
+    <div className="app">
       <Navbar
         isTopOfPage={isTopOfPage}
         selectedPage={selectedPage}
@@ -42,9 +47,9 @@ function App() {
           />
         )}
         <motion.div
-          margin="0 0 -200px 0"
-          amount="all"
+          variants={sectionMotion}
           onViewportEnter={() => setSelectedPage("home")}
+          viewport={{ amount: 0.45, margin: "0px 0px -35% 0px" }}
         >
           <Landing setSelectedPage={setSelectedPage} />
         </motion.div>
@@ -52,18 +57,18 @@ function App() {
       <LineGradient />
       <div className="w-5/6 mx-auto md:h-full ">
         <motion.div
-          margin="0 0 -200px 0"
-          amount="all"
+          variants={sectionMotion}
           onViewportEnter={() => setSelectedPage("skills")}
+          viewport={{ amount: 0.45, margin: "0px 0px -35% 0px" }}
         >
           <MySkills />
         </motion.div>
       </div>
       <div className="w-5/6 mx-auto">
         <motion.div
-          margin="0 0 -200px 0"
-          amount="all"
+          variants={sectionMotion}
           onViewportEnter={() => setSelectedPage("projects")}
+          viewport={{ amount: 0.45, margin: "0px 0px -35% 0px" }}
         >
           <Projects />
         </motion.div>
@@ -71,9 +76,9 @@ function App() {
       <LineGradient />
       <div className="w-5/6 mx-auto md:h-full">
         <motion.div
-          margin="0 0 -200px 0"
-          amount="all"
+          variants={sectionMotion}
           onViewportEnter={() => setSelectedPage("contact")}
+          viewport={{ amount: 0.45, margin: "0px 0px -35% 0px" }}
         >
           <Contact />
         </motion.div>

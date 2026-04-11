@@ -1,0 +1,15 @@
+/* Please Don’t Tell — переменные */
+:root {
+  --pdt-ink: #0d0d0d;
+  --pdt-violet: #9d62d9;
+  --pdt-mint: #8fd9b6;
+  --pdt-lemon: #f2e96d;
+  --pdt-coral: #f25835;
+  --pdt-gradient-cta: linear-gradient(
+    90deg,
+    #9d62d9 0%,
+    #8fd9b6 32%,
+    #f2e96d 66%,
+    #f25835 100%
+  );
+}
