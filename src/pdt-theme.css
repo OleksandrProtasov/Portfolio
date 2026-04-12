@@ -1,0 +1,21 @@
+/* Midnight & Sage + AK layout tokens */
+:root {
+  --ms-page-bg: #1a1640;
+  --ms-primary: #26215c;
+  --ms-violet: #7f77dd;
+  --ms-sage: #1d9e75;
+  --ms-lavender: #eeedfe;
+  --ms-body: #afa9ec;
+  --ms-tag: #5dcaa5;
+
+  /* Алиасы для курсора и старых имён */
+  --ms-midnight: var(--ms-primary);
+  --ms-midnight-page: var(--ms-page-bg);
+
+  --pdt-ink: var(--ms-primary);
+  --pdt-violet: var(--ms-violet);
+  --pdt-mint: var(--ms-sage);
+  --pdt-lemon: var(--ms-lavender);
+  --pdt-coral: var(--ms-sage);
+  --pdt-gradient-cta: linear-gradient(90deg, #7f77dd 0%, #1d9e75 100%);
+}

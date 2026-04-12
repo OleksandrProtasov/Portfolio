@@ -1,49 +1,30 @@
 {
-  "homepage": "https://johnyfours.github.io/Portfolio/",
+  "homepage": "https://oleksandrprotasov.github.io/Portfolio/",
   "name": "react-portfolio",
   "version": "0.1.0",
   "private": true,
+  "type": "module",
   "dependencies": {
-    "@testing-library/jest-dom": "^5.16.5",
-    "@testing-library/react": "^13.4.0",
-    "@testing-library/user-event": "^13.5.0",
-    "framer-motion": "^7.5.1",
-    "react": "^18.2.0",
+    "framer-motion": "^11.11.17",
+    "react": "^18.3.1",
     "react-anchor-link-smooth-scroll": "^1.0.12",
-    "react-dom": "^18.2.0",
-    "react-hook-form": "^7.36.1",
-    "react-icons": "^4.8.0",
-    "react-scripts": "5.0.1",
-    "web-vitals": "^2.1.4"
+    "react-dom": "^18.3.1",
+    "react-hook-form": "^7.53.2",
+    "react-icons": "^5.3.0"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
-  },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
+    "deploy": "gh-pages -d dist"
   },
   "devDependencies": {
-    "gh-pages": "^5.0.0",
-    "tailwindcss": "^3.1.8"
+    "@vitejs/plugin-react": "^4.3.4",
+    "autoprefixer": "^10.4.20",
+    "gh-pages": "^6.2.0",
+    "postcss": "^8.4.49",
+    "tailwindcss": "^3.4.15",
+    "vite": "^5.4.11"
   }
 }

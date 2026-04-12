@@ -1,7 +1,9 @@
+import CustomCursor from "./components/CustomCursor";
 import Navbar from "./scenes/Navbar";
 import Landing from "./scenes/Landing";
 import DotGroup from "./scenes/DotGroup";
 import MySkills from "./scenes/MySkills";
+import Experience from "./scenes/Experience";
 import LineGradient from "./components/LineGradient";
 import Projects from "./scenes/Projects";
 import Contact from "./scenes/Contact";
@@ -9,6 +11,11 @@ import Footer from "./scenes/Footer";
 import useMediaQuery from "./hooks/useMediaQuery";
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
+
+const sectionMotion = {
+  hidden: {},
+  visible: {},
+};
 
 function App() {
   const [selectedPage, setSelectedPage] = useState("home");
@@ -28,13 +35,14 @@ function App() {
   }, []);
 
   return (
-    <div className="app bg-deep-blue">
+    <div className="app">
+      <CustomCursor />
       <Navbar
         isTopOfPage={isTopOfPage}
         selectedPage={selectedPage}
         setSelectedPage={setSelectedPage}
       />
-      <div className="w-5/6 mx-auto md:h-full">
+      <div className="mx-auto w-5/6">
         {isDesktop && (
           <DotGroup
             selectedPage={selectedPage}
@@ -42,38 +50,54 @@ function App() {
           />
         )}
         <motion.div
-          margin="0 0 -200px 0"
-          amount="all"
+          variants={sectionMotion}
           onViewportEnter={() => setSelectedPage("home")}
+          viewport={{ amount: 0.45, margin: "0px 0px -35% 0px" }}
         >
           <Landing setSelectedPage={setSelectedPage} />
         </motion.div>
       </div>
-      <LineGradient />
-      <div className="w-5/6 mx-auto md:h-full ">
+      <div className="site-divider">
+        <LineGradient width="w-full" />
+      </div>
+      <div className="mx-auto w-5/6">
         <motion.div
-          margin="0 0 -200px 0"
-          amount="all"
+          variants={sectionMotion}
           onViewportEnter={() => setSelectedPage("skills")}
+          viewport={{ amount: 0.45, margin: "0px 0px -35% 0px" }}
         >
           <MySkills />
         </motion.div>
       </div>
+      <div className="site-divider">
+        <LineGradient width="w-full" />
+      </div>
       <div className="w-5/6 mx-auto">
         <motion.div
-          margin="0 0 -200px 0"
-          amount="all"
+          variants={sectionMotion}
+          onViewportEnter={() => setSelectedPage("experience")}
+          viewport={{ amount: 0.35, margin: "0px 0px -35% 0px" }}
+        >
+          <Experience />
+        </motion.div>
+      </div>
+      <div className="w-5/6 mx-auto">
+        <motion.div
+          variants={sectionMotion}
           onViewportEnter={() => setSelectedPage("projects")}
+          viewport={{ amount: 0.45, margin: "0px 0px -35% 0px" }}
         >
           <Projects />
         </motion.div>
       </div>
-      <LineGradient />
-      <div className="w-5/6 mx-auto md:h-full">
+      <div className="site-divider">
+        <LineGradient width="w-full" />
+      </div>
+      <div className="mx-auto w-5/6">
         <motion.div
-          margin="0 0 -200px 0"
-          amount="all"
+          variants={sectionMotion}
           onViewportEnter={() => setSelectedPage("contact")}
+          viewport={{ amount: 0.45, margin: "0px 0px -35% 0px" }}
         >
           <Contact />
         </motion.div>

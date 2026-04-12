@@ -1,40 +1,50 @@
 import AnchorLink from "react-anchor-link-smooth-scroll";
 
 const DotGroup = ({ selectedPage, setSelectedPage }) => {
-  const selectedStyles = `relative bg-yellow before:absolute before:w-6 before:h-6 before:rounded-full
-    before:border-2 before:border-yellow before:left-[-50%] before:top-[-50%]`;
+  const selectedStyles = `relative bg-pdt-violet shadow-md shadow-pdt-violet/45 ring-2 ring-pdt-mint ring-offset-2 ring-offset-pdt-bg`;
+
+  const idleStyles =
+    "bg-pdt-lemon/12 ring-1 ring-pdt-violet/30 hover:bg-pdt-violet/25";
 
   return (
-    <div className="flex flex-col gap-6 fixed top-[60%] right-7">
+    <div className="fixed right-7 top-[60%] z-30 flex flex-col gap-6 md:right-8">
       <AnchorLink
         href="#home"
         className={`${
-          selectedPage === "home" ? selectedStyles : "bg-dark-grey"
-        } w-3 h-3 rounded-full`}
+          selectedPage === "home" ? selectedStyles : idleStyles
+        } h-3 w-3 rounded-full transition-all duration-300`}
         onClick={() => setSelectedPage("home")}
       />
 
       <AnchorLink
         href="#skills"
         className={`${
-          selectedPage === "skills" ? selectedStyles : "bg-dark-grey"
-        } w-3 h-3 rounded-full`}
+          selectedPage === "skills" ? selectedStyles : idleStyles
+        } h-3 w-3 rounded-full transition-all duration-300`}
         onClick={() => setSelectedPage("skills")}
+      />
+
+      <AnchorLink
+        href="#experience"
+        className={`${
+          selectedPage === "experience" ? selectedStyles : idleStyles
+        } h-3 w-3 rounded-full transition-all duration-300`}
+        onClick={() => setSelectedPage("experience")}
       />
 
       <AnchorLink
         href="#projects"
         className={`${
-          selectedPage === "projects" ? selectedStyles : "bg-dark-grey"
-        } w-3 h-3 rounded-full`}
+          selectedPage === "projects" ? selectedStyles : idleStyles
+        } h-3 w-3 rounded-full transition-all duration-300`}
         onClick={() => setSelectedPage("projects")}
       />
 
       <AnchorLink
         href="#contact"
         className={`${
-          selectedPage === "contact" ? selectedStyles : "bg-dark-grey"
-        } w-3 h-3 rounded-full`}
+          selectedPage === "contact" ? selectedStyles : idleStyles
+        } h-3 w-3 rounded-full transition-all duration-300`}
         onClick={() => setSelectedPage("contact")}
       />
     </div>

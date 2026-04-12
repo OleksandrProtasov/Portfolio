@@ -1,16 +1,19 @@
 import { useState } from "react";
 import AnchorLink from "react-anchor-link-smooth-scroll";
 import useMediaQuery from "../hooks/useMediaQuery";
-import menuIcon from "../../src/assets/menu-icon.svg"
-import closeIcon from "../../src/assets/close-icon.svg"
+import menuIcon from "../assets/menu-icon.svg";
+import closeIcon from "../assets/close-icon.svg";
 
 const Link = ({ page, selectedPage, setSelectedPage }) => {
   const lowerCasePage = page.toLowerCase();
+  const active = selectedPage === lowerCasePage;
   return (
     <AnchorLink
-      className={`${
-        selectedPage === lowerCasePage ? "text-yellow" : ""
-      } hover:text-yellow transition duration-500`}
+      className={`transition duration-300 ${
+        active
+          ? "font-medium text-pdt-lemon"
+          : "text-pdt-body/80 hover:text-pdt-mint"
+      }`}
       href={`#${lowerCasePage}`}
       onClick={() => setSelectedPage(lowerCasePage)}
     >
@@ -22,16 +25,20 @@ const Link = ({ page, selectedPage, setSelectedPage }) => {
 const Navbar = ({ isTopOfPage, selectedPage, setSelectedPage }) => {
   const [isMenuToggled, setIsMenuToggled] = useState(false);
   const isDesktop = useMediaQuery("(min-width: 768px)");
-  const navbarBackground = isTopOfPage ? "" : "bg-blue";
+  const navbarBackground = isTopOfPage
+    ? ""
+    : "border-b border-pdt-violet/30 bg-pdt-surface/90 shadow-pdt-glow backdrop-blur-md";
 
   return (
-    <nav className={`${navbarBackground} z-40 w-full fixed top-0 py-6`}>
-      <div className="flex items-center justify-between mx-auto w-5/6">
-        <h4 className="font-playfair text-3xl font-bold">OP</h4>
+    <nav className={`${navbarBackground} fixed top-0 z-40 w-full py-6`}>
+      <div className="mx-auto flex w-5/6 items-center justify-between">
+        <h4 className="font-playfair text-3xl font-extrabold tracking-display">
+          <span className="text-pdt-violet">O</span>
+          <span className="text-pdt-mint">P</span>
+        </h4>
 
-        {/* DESKTOP NAV */}
         {isDesktop ? (
-          <div className="flex justify-between gap-16 font-opensans text-sm font-semibold">
+          <div className="flex flex-wrap justify-end gap-x-10 gap-y-2 font-opensans text-sm font-normal lg:gap-x-14">
             <Link
               page="Home"
               selectedPage={selectedPage}
@@ -39,6 +46,11 @@ const Navbar = ({ isTopOfPage, selectedPage, setSelectedPage }) => {
             />
             <Link
               page="Skills"
+              selectedPage={selectedPage}
+              setSelectedPage={setSelectedPage}
+            />
+            <Link
+              page="Experience"
               selectedPage={selectedPage}
               setSelectedPage={setSelectedPage}
             />
@@ -55,25 +67,29 @@ const Navbar = ({ isTopOfPage, selectedPage, setSelectedPage }) => {
           </div>
         ) : (
           <button
-            className="rounded-full bg-red p-2"
+            className="rounded-full bg-pdt-mint p-2 text-pdt-ink shadow-md shadow-pdt-mint/40 transition hover:bg-pdt-lemon hover:text-pdt-ink"
+            type="button"
             onClick={() => setIsMenuToggled(!isMenuToggled)}
+            aria-label="Open menu"
           >
-            <img alt="menu-icon" src={menuIcon} />
+            <img alt="" src={menuIcon} className="h-[22px] w-[22px]" />
           </button>
         )}
 
-        {/* MOBILE MENU POPUP */}
         {!isDesktop && isMenuToggled && (
-          <div className="fixed right-0 bottom-0 h-full bg-blue w-[300px]">
-            {/* CLOSE ICON */}
+          <div className="fixed bottom-0 right-0 h-full w-[300px] border-l border-pdt-violet/25 bg-pdt-surface/98 shadow-2xl shadow-pdt-violet/20">
             <div className="flex justify-end p-12">
-              <button onClick={() => setIsMenuToggled(!isMenuToggled)}>
-                <img alt="close-icon" src={closeIcon} />
+              <button
+                type="button"
+                className="rounded-full p-2 text-pdt-mint transition hover:bg-pdt-violet/20 hover:text-pdt-lemon"
+                onClick={() => setIsMenuToggled(!isMenuToggled)}
+                aria-label="Close menu"
+              >
+                <img alt="" src={closeIcon} className="h-6 w-6" />
               </button>
             </div>
 
-            {/* MENU ITEMS */}
-            <div className="flex flex-col gap-10 ml-[33%] text-2xl text-deep-blue">
+            <div className="ml-[33%] flex flex-col gap-10 text-2xl">
               <Link
                 page="Home"
                 selectedPage={selectedPage}
@@ -81,6 +97,11 @@ const Navbar = ({ isTopOfPage, selectedPage, setSelectedPage }) => {
               />
               <Link
                 page="Skills"
+                selectedPage={selectedPage}
+                setSelectedPage={setSelectedPage}
+              />
+              <Link
+                page="Experience"
                 selectedPage={selectedPage}
                 setSelectedPage={setSelectedPage}
               />

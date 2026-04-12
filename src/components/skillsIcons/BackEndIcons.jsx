@@ -1,26 +1,22 @@
-import NodeJs from '../../assets/nodejs.png'
-import express from '../../assets/express.png'
-import jwt from '../../assets/jwt.png'
-import insomnia from '../../assets/insomnia.png'
-import java from '../../assets/java.png'
+import NodeJs from "../../assets/nodejs.png";
+import express from "../../assets/express.png";
+import java from "../../assets/java.png";
+import python from "../../assets/python.png";
+import SkillIconTile from "./SkillIconTile";
 
-const BackEndIcons = () => {
-    return(
-        <div className='w-full grid grid-cols-2 sm:grid-cols-4 gap-4 text-center py-8'>
-            <div className='shadow-md shadow-[#040c16] hover:scale-110 duration-500'>
-                <img className='w-10 mx-auto' src={NodeJs} alt="HTML icon"/>
-                <p className='my-4'>NodeJs</p>
-            </div>
-            <div className='shadow-md shadow-[#040c16] hover:scale-110 duration-500'>
-                <img className='w-10 mx-auto' src={express} alt="HTML icon"/>
-                <p className='my-4'>Express</p>
-            </div>
-            <div className='shadow-md shadow-[#040c16] hover:scale-110 duration-500'>
-                <img className='w-10 mx-auto' src={java} alt="HTML icon" />
-                <p className='my-4'>Java</p>
-            </div>
-        </div>
-    )
-}
+const items = [
+  { src: NodeJs, label: "NodeJs", alt: "Node.js" },
+  { src: express, label: "Express", alt: "Express" },
+  { src: java, label: "Java", alt: "Java" },
+  { src: python, label: "Python", alt: "Python" },
+];
+
+const BackEndIcons = () => (
+  <div className="grid w-full grid-cols-2 gap-4 py-8 text-center sm:grid-cols-4">
+    {items.map(({ src, label, alt }) => (
+      <SkillIconTile key={label} src={src} alt={alt} label={label} />
+    ))}
+  </div>
+);
 
 export default BackEndIcons;
