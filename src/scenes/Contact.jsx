@@ -67,8 +67,8 @@ const Contact = () => {
         }}
       >
         <h2 className="font-playfair text-4xl font-extrabold tracking-display md:text-5xl">
-          <span className="font-playfair text-pdt-mint">Contact</span>{" "}
-          <span className="font-playfair text-pdt-lemon">me</span>
+          <span className="text-pdt-mint">CONTACT</span>{" "}
+          <span className="text-pdt-lemon">ME</span>
         </h2>
         <div className="mt-5 flex justify-center">
           <LineGradient width="w-2/3 md:w-1/3" />
