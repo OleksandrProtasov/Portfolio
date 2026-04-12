@@ -1,10 +1,10 @@
 import AnchorLink from "react-anchor-link-smooth-scroll";
 
 const DotGroup = ({ selectedPage, setSelectedPage }) => {
-  const selectedStyles = `relative bg-pdt-coral shadow-md shadow-pdt-coral/50 ring-2 ring-pdt-lemon ring-offset-2 ring-offset-[#0d0d0d]`;
+  const selectedStyles = `relative bg-pdt-violet shadow-md shadow-pdt-violet/45 ring-2 ring-pdt-mint ring-offset-2 ring-offset-pdt-bg`;
 
   const idleStyles =
-    "bg-white/15 ring-1 ring-pdt-violet/30 hover:bg-pdt-violet/25";
+    "bg-pdt-lemon/12 ring-1 ring-pdt-violet/30 hover:bg-pdt-violet/25";
 
   return (
     <div className="fixed right-7 top-[60%] z-30 flex flex-col gap-6 md:right-8">
@@ -22,6 +22,14 @@ const DotGroup = ({ selectedPage, setSelectedPage }) => {
           selectedPage === "skills" ? selectedStyles : idleStyles
         } h-3 w-3 rounded-full transition-all duration-300`}
         onClick={() => setSelectedPage("skills")}
+      />
+
+      <AnchorLink
+        href="#experience"
+        className={`${
+          selectedPage === "experience" ? selectedStyles : idleStyles
+        } h-3 w-3 rounded-full transition-all duration-300`}
+        onClick={() => setSelectedPage("experience")}
       />
 
       <AnchorLink

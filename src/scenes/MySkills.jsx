@@ -1,125 +1,115 @@
 import LineGradient from "../components/LineGradient";
-import useMediaQuery from "../hooks/useMediaQuery";
 import { motion } from "framer-motion";
 import FrontEndIcons from "../components/skillsIcons/FrontEndIcons";
 import BackEndIcons from "../components/skillsIcons/BackEndIcons";
 import DataBaseIcons from "../components/skillsIcons/DataBaseIcons";
 import SkillImg from "../assets/skills-image.png";
 
+const columnTitleClass =
+  "mb-5 font-playfair text-2xl font-extrabold tracking-display md:text-3xl";
+
 const MySkills = () => {
-  const isAboveLarge = useMediaQuery("(min-width: 1060px)");
   return (
-    <section id="skills" className="pb-24 pt-10">
-      <div className="mt-32 md:flex md:justify-between md:gap-16">
+    <section id="skills" className="site-section isolate overflow-x-clip">
+      <div className="site-stack">
         <motion.div
-          className="md:w-1/3"
+          className="mx-auto max-w-3xl text-center md:max-w-4xl"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.5 }}
+          viewport={{ once: true, amount: 0.35 }}
           transition={{ duration: 0.5 }}
           variants={{
-            hidden: { opacity: 0, x: -50 },
-            visible: { opacity: 1, x: 0 },
+            hidden: { opacity: 0, y: -20 },
+            visible: { opacity: 1, y: 0 },
           }}
         >
-          <p className="mb-5 font-playfair text-4xl font-semibold text-white">
-            MY <span className="pdt-text-gradient">SKILLS</span>
-          </p>
-          <LineGradient width="w-1/3" />
-          <p className="pdt-body-muted mb-7 mt-10">
-            These are the technologies I've worked with
+          <h2 className="font-playfair text-4xl font-extrabold tracking-display md:text-5xl">
+            <span className="text-pdt-mint">MY</span>{" "}
+            <span className="text-pdt-lemon">SKILLS</span>
+          </h2>
+          <div className="mt-5 flex justify-center">
+            <LineGradient width="w-2/3 md:w-1/3" />
+          </div>
+          <p className="pdt-body-muted mx-auto mt-8 max-w-md">
+            These are the technologies I&apos;ve worked with
           </p>
         </motion.div>
 
-        <div className="mt-16 md:mt-0">
-          {isAboveLarge ? (
-            <div
-              className="relative z-0 ml-20 before:absolute before:-left-10 before:-top-10 before:z-[-1]
-              before:h-full before:w-full before:rounded-sm before:border-2 before:border-pdt-violet/60 before:shadow-pdt-glow"
-            >
-              <img alt="skills" className="z-10 rounded-sm" src={SkillImg} />
-            </div>
-          ) : (
-            <img alt="skills" className="z-10" src={SkillImg} />
-          )}
+        <motion.div
+          className="mx-auto mt-10 w-full max-w-3xl px-2 md:mt-12 md:max-w-4xl md:px-0"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.35 }}
+          transition={{ duration: 0.5 }}
+          variants={{
+            hidden: { opacity: 0, y: 24 },
+            visible: { opacity: 1, y: 0 },
+          }}
+        >
+          <div className="flex justify-center">
+            <img
+              alt="Skills"
+              className="w-full max-w-[min(100%,520px)] rounded-md ring-2 ring-pdt-violet/45 ring-offset-4 ring-offset-pdt-bg shadow-pdt-glow"
+              src={SkillImg}
+            />
+          </div>
+        </motion.div>
+
+        <div className="mx-auto mt-10 flex w-full max-w-6xl flex-col gap-12 px-2 pt-4 sm:px-4 md:mt-12 md:flex-row md:justify-between md:gap-8 md:px-0 lg:gap-10">
+          <motion.div
+            className="min-w-0 flex-1"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.35 }}
+            transition={{ duration: 0.5 }}
+            variants={{
+              hidden: { opacity: 0, y: 40 },
+              visible: { opacity: 1, y: 0 },
+            }}
+          >
+            <h3 className={columnTitleClass}>
+              <span className="text-pdt-mint">Front-End</span>{" "}
+              <span className="text-pdt-lemon">Technologies</span>
+            </h3>
+            <FrontEndIcons />
+          </motion.div>
+
+          <motion.div
+            className="min-w-0 flex-1"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.35 }}
+            transition={{ delay: 0.1, duration: 0.5 }}
+            variants={{
+              hidden: { opacity: 0, y: 40 },
+              visible: { opacity: 1, y: 0 },
+            }}
+          >
+            <h3 className={columnTitleClass}>
+              <span className="text-pdt-mint">Backend</span>{" "}
+              <span className="text-pdt-lemon">Technologies</span>
+            </h3>
+            <BackEndIcons />
+          </motion.div>
+
+          <motion.div
+            className="min-w-0 flex-1"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.35 }}
+            transition={{ delay: 0.2, duration: 0.5 }}
+            variants={{
+              hidden: { opacity: 0, y: 40 },
+              visible: { opacity: 1, y: 0 },
+            }}
+          >
+            <h3 className={columnTitleClass}>
+              <span className="text-pdt-mint">Data Bases</span>{" "}
+              <span className="text-pdt-lemon">&amp; Other</span>
+            </h3>
+            <DataBaseIcons />
+          </motion.div>
         </div>
-      </div>
-
-      <div className="mt-16 gap-32 md:flex md:justify-between">
-        <motion.div
-          className="mt-10 md:w-1/3"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.5 }}
-          transition={{ duration: 0.5 }}
-          variants={{
-            hidden: { opacity: 0, y: 50 },
-            visible: { opacity: 1, y: 0 },
-          }}
-        >
-          <div className="relative h-32">
-            <div className="z-10">
-              <p className="font-playfair text-3xl font-semibold text-pdt-mint">
-                Front-End
-              </p>
-              <p className="ml-7 mt-3 font-playfair text-3xl font-semibold text-white/90">
-                Technologies
-              </p>
-            </div>
-            <div className="absolute right-0 top-0 z-[-1] h-32 w-1/2 rounded-sm bg-pdt-mint/25 md:w-3/4" />
-          </div>
-          <FrontEndIcons />
-        </motion.div>
-
-        <motion.div
-          className="mt-10 md:w-1/3"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.5 }}
-          transition={{ delay: 0.2, duration: 0.5 }}
-          variants={{
-            hidden: { opacity: 0, y: 50 },
-            visible: { opacity: 1, y: 0 },
-          }}
-        >
-          <div className="relative h-32">
-            <div className="z-10">
-              <p className="font-playfair text-3xl font-semibold text-pdt-coral">
-                Backend
-              </p>
-              <p className="ml-7 mt-3 font-playfair text-3xl font-semibold text-white/90">
-                Technologies
-              </p>
-            </div>
-            <div className="absolute right-0 top-0 z-[-1] h-32 w-1/2 rounded-sm bg-pdt-coral/25 md:w-3/4" />
-          </div>
-          <BackEndIcons />
-        </motion.div>
-
-        <motion.div
-          className="mt-10 md:w-1/3"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.5 }}
-          transition={{ delay: 0.4, duration: 0.5 }}
-          variants={{
-            hidden: { opacity: 0, y: 50 },
-            visible: { opacity: 1, y: 0 },
-          }}
-        >
-          <div className="relative h-32">
-            <div className="z-10">
-              <p className="font-playfair text-3xl font-semibold text-pdt-lemon">
-                Data Bases
-              </p>
-              <p className="ml-7 mt-3 font-playfair text-3xl font-semibold text-white/90">
-                & Other
-              </p>
-            </div>
-            <div className="absolute right-0 top-0 z-[-1] h-32 w-1/2 rounded-sm bg-pdt-lemon/25 md:w-3/4" />
-          </div>
-          <DataBaseIcons />
-        </motion.div>
       </div>
     </section>
   );

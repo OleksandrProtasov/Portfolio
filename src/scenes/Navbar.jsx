@@ -11,8 +11,8 @@ const Link = ({ page, selectedPage, setSelectedPage }) => {
     <AnchorLink
       className={`transition duration-300 ${
         active
-          ? "font-semibold text-pdt-lemon"
-          : "text-white/65 hover:text-pdt-mint"
+          ? "font-medium text-pdt-lemon"
+          : "text-pdt-body/80 hover:text-pdt-mint"
       }`}
       href={`#${lowerCasePage}`}
       onClick={() => setSelectedPage(lowerCasePage)}
@@ -32,13 +32,13 @@ const Navbar = ({ isTopOfPage, selectedPage, setSelectedPage }) => {
   return (
     <nav className={`${navbarBackground} fixed top-0 z-40 w-full py-6`}>
       <div className="mx-auto flex w-5/6 items-center justify-between">
-        <h4 className="font-playfair text-3xl font-bold tracking-tight">
+        <h4 className="font-playfair text-3xl font-extrabold tracking-display">
           <span className="text-pdt-violet">O</span>
           <span className="text-pdt-mint">P</span>
         </h4>
 
         {isDesktop ? (
-          <div className="flex justify-between gap-16 font-opensans text-sm font-semibold">
+          <div className="flex flex-wrap justify-end gap-x-10 gap-y-2 font-opensans text-sm font-normal lg:gap-x-14">
             <Link
               page="Home"
               selectedPage={selectedPage}
@@ -46,6 +46,11 @@ const Navbar = ({ isTopOfPage, selectedPage, setSelectedPage }) => {
             />
             <Link
               page="Skills"
+              selectedPage={selectedPage}
+              setSelectedPage={setSelectedPage}
+            />
+            <Link
+              page="Experience"
               selectedPage={selectedPage}
               setSelectedPage={setSelectedPage}
             />
@@ -62,7 +67,7 @@ const Navbar = ({ isTopOfPage, selectedPage, setSelectedPage }) => {
           </div>
         ) : (
           <button
-            className="rounded-full bg-pdt-coral p-2 text-white shadow-md shadow-pdt-coral/40 transition hover:bg-pdt-lemon hover:text-pdt-ink"
+            className="rounded-full bg-pdt-mint p-2 text-pdt-ink shadow-md shadow-pdt-mint/40 transition hover:bg-pdt-lemon hover:text-pdt-ink"
             type="button"
             onClick={() => setIsMenuToggled(!isMenuToggled)}
             aria-label="Open menu"
@@ -76,7 +81,7 @@ const Navbar = ({ isTopOfPage, selectedPage, setSelectedPage }) => {
             <div className="flex justify-end p-12">
               <button
                 type="button"
-                className="rounded-full p-2 text-pdt-mint transition hover:bg-pdt-violet/20 hover:text-white"
+                className="rounded-full p-2 text-pdt-mint transition hover:bg-pdt-violet/20 hover:text-pdt-lemon"
                 onClick={() => setIsMenuToggled(!isMenuToggled)}
                 aria-label="Close menu"
               >
@@ -92,6 +97,11 @@ const Navbar = ({ isTopOfPage, selectedPage, setSelectedPage }) => {
               />
               <Link
                 page="Skills"
+                selectedPage={selectedPage}
+                setSelectedPage={setSelectedPage}
+              />
+              <Link
+                page="Experience"
                 selectedPage={selectedPage}
                 setSelectedPage={setSelectedPage}
               />

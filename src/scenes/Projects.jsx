@@ -25,7 +25,7 @@ const Project = ({ title, href, description, src }) => {
 
   const inner = (
     <>
-      <p className="font-playfair text-2xl font-semibold text-pdt-violet">
+      <p className="font-playfair text-2xl font-extrabold tracking-display text-pdt-violet">
         {title}
       </p>
       <p className="mt-7 text-pdt-ink/85">{description}</p>
@@ -53,7 +53,7 @@ const Project = ({ title, href, description, src }) => {
 
 const Projects = () => {
   return (
-    <section id="projects" className="pb-48 md:pt-80">
+    <section id="projects" className="site-section">
       <motion.div
         className="mx-auto text-center md:w-2/5"
         initial="hidden"
@@ -66,20 +66,20 @@ const Projects = () => {
         }}
       >
         <div>
-          <p className="font-playfair text-4xl font-semibold">
+          <p className="font-playfair text-4xl font-extrabold tracking-display">
             <span className="text-pdt-mint">PRO</span>
-            <span className="text-white">JECTS</span>
+            <span className="text-pdt-lemon">JECTS</span>
           </p>
           <div className="mt-5 flex justify-center">
             <LineGradient width="w-2/3" />
           </div>
         </div>
-        <p className="pdt-body-muted mb-10 mt-10">
+        <p className="pdt-body-muted mx-auto mt-8 max-w-md md:max-w-lg">
           You could check the implemented projects out below
         </p>
       </motion.div>
 
-      <div className="flex justify-center">
+      <div className="mt-12 flex justify-center md:mt-16">
         <motion.div
           className="sm:grid sm:grid-cols-3"
           variants={container}
@@ -87,7 +87,7 @@ const Projects = () => {
           whileInView="visible"
           viewport={{ once: true, amount: 0.2 }}
         >
-          <div className="flex max-h-[400px] max-w-[400px] items-center justify-center border border-pdt-lemon/30 bg-yellow p-10 text-center font-playfair text-2xl font-semibold text-pdt-ink shadow-pdt-glow-mint">
+          <div className="flex max-h-[400px] max-w-[400px] items-center justify-center border border-pdt-lemon/30 bg-yellow p-10 text-center font-playfair text-2xl font-extrabold tracking-display text-pdt-ink shadow-pdt-glow-mint">
             BEAUTIFUL USER INTERFACES
           </div>
           <Project
@@ -114,7 +114,7 @@ const Projects = () => {
             description="Coming Soon"
             src={project4Img}
           />
-          <div className="flex max-h-[400px] max-w-[400px] items-center justify-center border border-pdt-mint/35 bg-blue p-10 text-center font-playfair text-2xl font-semibold text-pdt-ink shadow-pdt-glow">
+          <div className="flex max-h-[400px] max-w-[400px] items-center justify-center border border-pdt-mint/35 bg-blue p-10 text-center font-playfair text-2xl font-extrabold tracking-display text-pdt-ink shadow-pdt-glow">
             SMOOTH USER EXPERIENCE
           </div>
         </motion.div>

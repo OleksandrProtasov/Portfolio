@@ -1,12 +1,14 @@
 import { BsLinkedin, BsTelegram } from "react-icons/bs";
-import { FaGithub, FaInstagram } from "react-icons/fa";
+import { FaGithub } from "react-icons/fa";
 
 const link =
-  "rounded-full p-2 text-white/80 transition duration-300 hover:scale-110";
+  "rounded-full p-2 text-pdt-lemon/80 transition duration-300 hover:scale-110";
 
-const SocialMediaIcons = () => {
+const SocialMediaIcons = ({ className = "" }) => {
   return (
-    <div className="my-10 flex justify-center gap-5 md:justify-start md:gap-6">
+    <div
+      className={`my-10 flex justify-center gap-5 md:justify-start md:gap-6 ${className}`.trim()}
+    >
       <a
         className={`${link} hover:text-pdt-violet hover:shadow-pdt-glow`}
         href="https://www.linkedin.com/in/oleksandr-protasov/"
@@ -33,15 +35,6 @@ const SocialMediaIcons = () => {
         aria-label="Telegram"
       >
         <BsTelegram size={40} />
-      </a>
-      <a
-        className={`${link} hover:text-pdt-coral hover:shadow-pdt-glow`}
-        href="https://www.instagram.com/aleks.protasov/"
-        target="_blank"
-        rel="noreferrer"
-        aria-label="Instagram"
-      >
-        <FaInstagram size={40} />
       </a>
     </div>
   );

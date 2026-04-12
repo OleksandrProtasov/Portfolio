@@ -1,0 +1,54 @@
+/* Midnight & Sage — курсор; токены --ms-* заданы в pdt-theme.css */
+
+html.ms-cursor--hide-system,
+html.ms-cursor--hide-system * {
+  cursor: none !important;
+}
+
+.ms-cursor__ring {
+  position: fixed;
+  left: 0;
+  top: 0;
+  pointer-events: none;
+  z-index: 2147483647;
+  will-change: transform;
+  width: 14px;
+  height: 14px;
+  margin-left: -7px;
+  margin-top: -7px;
+  box-sizing: border-box;
+  border-radius: 50%;
+  border: 2px solid var(--ms-violet);
+  background: transparent;
+  transition: width 0.12s ease, height 0.12s ease, margin 0.12s ease,
+    border-color 0.12s ease, background-color 0.12s ease,
+    box-shadow 0.12s ease;
+}
+
+.ms-cursor__ring::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 4px;
+  height: 4px;
+  margin: -2px 0 0 -2px;
+  border-radius: 50%;
+  background: var(--ms-sage);
+  transition: opacity 0.12s ease, transform 0.12s ease;
+}
+
+.ms-cursor__ring[data-hover="true"] {
+  width: 36px;
+  height: 36px;
+  margin-left: -18px;
+  margin-top: -18px;
+  border-color: var(--ms-sage);
+  background-color: rgba(127, 119, 221, 0.15);
+  box-shadow: 0 0 0 1px rgba(29, 158, 117, 0.35);
+}
+
+.ms-cursor__ring[data-hover="true"]::after {
+  opacity: 0;
+  transform: scale(0);
+}
