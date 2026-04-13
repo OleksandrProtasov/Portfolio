@@ -3,10 +3,9 @@ import { motion } from "framer-motion";
 import FrontEndIcons from "../components/skillsIcons/FrontEndIcons";
 import BackEndIcons from "../components/skillsIcons/BackEndIcons";
 import DataBaseIcons from "../components/skillsIcons/DataBaseIcons";
-import SkillImg from "../assets/skills-image.png";
 
 const columnTitleClass =
-  "mb-5 font-playfair text-2xl font-extrabold tracking-display md:text-3xl";
+  "mb-5 text-center font-playfair text-2xl font-extrabold tracking-display md:text-left md:text-3xl";
 
 const MySkills = () => {
   return (
@@ -31,31 +30,12 @@ const MySkills = () => {
             <LineGradient width="w-2/3 md:w-1/3" />
           </div>
           <p className="pdt-body-muted mx-auto mt-8 max-w-md">
-            These are the technologies I&apos;ve worked with
+            Tools and technologies I use to build fast, scalable, and
+            user-focused products.
           </p>
         </motion.div>
 
-        <motion.div
-          className="mx-auto mt-10 w-full max-w-3xl px-2 md:mt-12 md:max-w-4xl md:px-0"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.35 }}
-          transition={{ duration: 0.5 }}
-          variants={{
-            hidden: { opacity: 0, y: 24 },
-            visible: { opacity: 1, y: 0 },
-          }}
-        >
-          <div className="flex justify-center">
-            <img
-              alt="Skills"
-              className="w-full max-w-[min(100%,520px)] rounded-md ring-2 ring-pdt-violet/45 ring-offset-4 ring-offset-pdt-bg shadow-pdt-glow"
-              src={SkillImg}
-            />
-          </div>
-        </motion.div>
-
-        <div className="mx-auto mt-10 flex w-full max-w-6xl flex-col gap-12 px-2 pt-4 sm:px-4 md:mt-12 md:flex-row md:justify-between md:gap-8 md:px-0 lg:gap-10">
+        <div className="mx-auto mt-8 flex w-full max-w-6xl flex-col gap-12 px-2 pt-2 sm:px-4 md:mt-10 md:flex-row md:justify-between md:gap-8 md:px-0 lg:gap-10">
           <motion.div
             className="min-w-0 flex-1"
             initial="hidden"

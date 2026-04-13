@@ -27,19 +27,19 @@ const Landing = ({ setSelectedPage }) => {
       <div className="z-10 flex basis-3/5 justify-center md:order-2 md:mt-0">
         {isAboveLarge ? (
           <div
-            className="group relative z-0 ml-20 before:pointer-events-none before:absolute before:-left-20 before:-top-20 before:z-[-1] before:h-full before:w-full before:max-w-[400px] before:rounded-sm before:border-2 before:border-pdt-violet/70 before:shadow-pdt-glow before:transition before:duration-300 before:content-[''] group-hover:before:border-pdt-mint/45 group-hover:before:shadow-pdt-glow-mint md:before:max-w-[600px]"
+            className="group relative z-0 ml-20 before:pointer-events-none before:absolute before:-left-20 before:-top-20 before:z-[-1] before:h-full before:w-full before:max-w-[400px] before:rounded-xl before:border-2 before:border-pdt-violet/70 before:shadow-pdt-glow before:transition before:duration-300 before:content-[''] group-hover:before:border-pdt-mint/45 group-hover:before:shadow-pdt-glow-mint md:before:max-w-[600px]"
           >
             <img
               alt="profile"
-              className="z-10 w-full max-w-[400px] rounded-sm md:max-w-[600px]"
+              className="z-10 w-full max-w-[400px] rounded-xl md:max-w-[600px]"
               src={ProfileImg}
             />
           </div>
         ) : (
-          <div className="group inline-block rounded-sm ring-2 ring-pdt-violet/40 ring-offset-4 ring-offset-pdt-bg transition duration-300 group-hover:ring-pdt-mint/40 group-hover:shadow-pdt-glow-mint">
+          <div className="group inline-block overflow-hidden rounded-xl ring-2 ring-pdt-violet/40 ring-offset-4 ring-offset-pdt-bg transition duration-300 group-hover:ring-pdt-mint/40 group-hover:shadow-pdt-glow-mint">
             <img
               alt="profile"
-              className="z-10 block w-full max-w-[400px] md:max-w-[600px]"
+              className="z-10 block w-full max-w-[400px] rounded-xl md:max-w-[600px]"
               src={ProfileImg}
             />
           </div>
@@ -64,7 +64,7 @@ const Landing = ({ setSelectedPage }) => {
             </span>
           </p>
 
-          <p className="pdt-body-muted mb-7 mt-10 max-w-xl text-center text-sm leading-relaxed md:text-start md:text-base">
+          <p className="pdt-body-muted mx-auto mb-7 mt-10 max-w-xl text-center text-sm leading-relaxed md:mx-0 md:text-start md:text-base">
             AI Developer with strong expertise in React, JavaScript, Java, and
             Python. Experienced in building AI-powered tools, mobile
             applications, and scalable web platforms. Skilled in machine
