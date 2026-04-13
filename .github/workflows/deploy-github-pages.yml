@@ -30,6 +30,12 @@ jobs:
       - name: Install
         run: npm install --no-audit --no-fund
 
+      # Lockfile from Windows can omit Rollup Linux optional binaries (npm/cli#4828)
+      - name: Install Rollup Linux native module
+        run: |
+          ROLLUP_VER=$(node -p "require('./node_modules/rollup/package.json').version")
+          npm install "@rollup/rollup-linux-x64-gnu@${ROLLUP_VER}" --no-save --no-audit --no-fund
+
       - name: Build
         env:
           VITE_WEB3FORMS_ACCESS_KEY: ${{ secrets.VITE_WEB3FORMS_ACCESS_KEY }}
