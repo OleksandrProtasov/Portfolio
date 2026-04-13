@@ -26,8 +26,9 @@ jobs:
           node-version: "20"
           cache: npm
 
+      # npm 11+ lockfile validation is stricter than npm 10; install is reliable for this stack
       - name: Install
-        run: npm ci
+        run: npm install --no-audit --no-fund
 
       - name: Build
         env:
