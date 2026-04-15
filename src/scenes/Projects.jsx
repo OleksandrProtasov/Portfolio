@@ -139,7 +139,8 @@ const Projects = () => {
           />
           <Project
             title="Project 4"
-            description="Coming Soon"
+            href="https://oleksandrprotasov.github.io/smartbasket/"
+            description="SmartBasket"
             src={project4Img}
           />
           <div className={featureCellClassAlt}>
@@ -152,3 +153,4 @@ const Projects = () => {
 };
 
 export default Projects;
+
